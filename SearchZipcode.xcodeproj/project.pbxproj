@@ -7,18 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A1B3CB30282FF94200C3D3AE /* SearchZIipcodeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B3CB2F282FF94200C3D3AE /* SearchZIipcodeApp.swift */; };
+		A1B3CB30282FF94200C3D3AE /* SearchZipcodeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B3CB2F282FF94200C3D3AE /* SearchZipcodeApp.swift */; };
 		A1B3CB32282FF94200C3D3AE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B3CB31282FF94200C3D3AE /* ContentView.swift */; };
 		A1B3CB34282FF94400C3D3AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1B3CB33282FF94400C3D3AE /* Assets.xcassets */; };
 		A1B3CB37282FF94400C3D3AE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1B3CB36282FF94400C3D3AE /* Preview Assets.xcassets */; };
+		A1B3CB3E282FF95300C3D3AE /* Zipcode.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B3CB3D282FF95300C3D3AE /* Zipcode.swift */; };
+		A1B3CB40282FFB7000C3D3AE /* ZipcodeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B3CB3F282FFB7000C3D3AE /* ZipcodeService.swift */; };
+		A1B3CB42282FFC1800C3D3AE /* ZipcodeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B3CB41282FFC1800C3D3AE /* ZipcodeViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		A1B3CB2C282FF94200C3D3AE /* SearchZIipcode.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SearchZIipcode.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		A1B3CB2F282FF94200C3D3AE /* SearchZIipcodeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchZIipcodeApp.swift; sourceTree = "<group>"; };
+		A1B3CB2C282FF94200C3D3AE /* SearchZipcode.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SearchZipcode.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A1B3CB2F282FF94200C3D3AE /* SearchZipcodeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchZipcodeApp.swift; sourceTree = "<group>"; };
 		A1B3CB31282FF94200C3D3AE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		A1B3CB33282FF94400C3D3AE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A1B3CB36282FF94400C3D3AE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		A1B3CB3D282FF95300C3D3AE /* Zipcode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Zipcode.swift; sourceTree = "<group>"; };
+		A1B3CB3F282FFB7000C3D3AE /* ZipcodeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZipcodeService.swift; sourceTree = "<group>"; };
+		A1B3CB41282FFC1800C3D3AE /* ZipcodeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZipcodeViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,7 +41,7 @@
 		A1B3CB23282FF94200C3D3AE = {
 			isa = PBXGroup;
 			children = (
-				A1B3CB2E282FF94200C3D3AE /* SearchZIipcode */,
+				A1B3CB2E282FF94200C3D3AE /* SearchZipcode */,
 				A1B3CB2D282FF94200C3D3AE /* Products */,
 			);
 			sourceTree = "<group>";
@@ -43,20 +49,23 @@
 		A1B3CB2D282FF94200C3D3AE /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A1B3CB2C282FF94200C3D3AE /* SearchZIipcode.app */,
+				A1B3CB2C282FF94200C3D3AE /* SearchZipcode.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		A1B3CB2E282FF94200C3D3AE /* SearchZIipcode */ = {
+		A1B3CB2E282FF94200C3D3AE /* SearchZipcode */ = {
 			isa = PBXGroup;
 			children = (
-				A1B3CB2F282FF94200C3D3AE /* SearchZIipcodeApp.swift */,
+				A1B3CB2F282FF94200C3D3AE /* SearchZipcodeApp.swift */,
 				A1B3CB31282FF94200C3D3AE /* ContentView.swift */,
+				A1B3CB3D282FF95300C3D3AE /* Zipcode.swift */,
+				A1B3CB3F282FFB7000C3D3AE /* ZipcodeService.swift */,
+				A1B3CB41282FFC1800C3D3AE /* ZipcodeViewModel.swift */,
 				A1B3CB33282FF94400C3D3AE /* Assets.xcassets */,
 				A1B3CB35282FF94400C3D3AE /* Preview Content */,
 			);
-			path = SearchZIipcode;
+			path = SearchZipcode;
 			sourceTree = "<group>";
 		};
 		A1B3CB35282FF94400C3D3AE /* Preview Content */ = {
@@ -84,7 +93,7 @@
 			);
 			name = SearchZIipcode;
 			productName = SearchZIipcode;
-			productReference = A1B3CB2C282FF94200C3D3AE /* SearchZIipcode.app */;
+			productReference = A1B3CB2C282FF94200C3D3AE /* SearchZipcode.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -138,7 +147,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				A1B3CB32282FF94200C3D3AE /* ContentView.swift in Sources */,
-				A1B3CB30282FF94200C3D3AE /* SearchZIipcodeApp.swift in Sources */,
+				A1B3CB42282FFC1800C3D3AE /* ZipcodeViewModel.swift in Sources */,
+				A1B3CB3E282FF95300C3D3AE /* Zipcode.swift in Sources */,
+				A1B3CB40282FFB7000C3D3AE /* ZipcodeService.swift in Sources */,
+				A1B3CB30282FF94200C3D3AE /* SearchZipcodeApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,8 +292,8 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = Sample.SearchZIipcode;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = Sample.SearchZipcode;
+				PRODUCT_NAME = SearchZipcode;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -309,8 +321,8 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = Sample.SearchZIipcode;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = Sample.SearchZipcode;
+				PRODUCT_NAME = SearchZipcode;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

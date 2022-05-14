@@ -8,10 +8,13 @@
 import SwiftUI
 
 @main
-struct SearchZIipcodeApp: App {
+struct SearchZipcodeApp: App {
+    @StateObject var viewModel = ZipcodeViewModel()
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(viewModel)
         }
     }
 }
