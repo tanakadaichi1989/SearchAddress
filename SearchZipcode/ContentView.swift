@@ -19,35 +19,38 @@ struct ContentView: View {
     @State var kana3: String = ""
     
     @State private var showResultView = false
+    @State private var showAlert = false
+    @State private var showProgressView = false
     
     var body: some View {
-        VStack {
-            HeaderView(title1: "郵便番号検索",title2: "数字７桁で入力してください")
+        ZStack {
+            if showProgressView { ProgressView() }
             
-            Spacer()
-            
-            VStack{
-                TextField("（例）9999999", text: $searchZipCode)
-                Divider()
+            VStack {
+                HeaderView(title1: "郵便番号検索",title2: "数字７桁で入力してください")
+                Spacer()
+                VStack{
+                    TextField("（例）9999999", text: $searchZipCode)
+                    Divider()
+                }
+                .padding(30)
+                Button {
+                    self.showProgressView.toggle()
+                    self.setResultData()
+                } label: {
+                    Text("検索実行")
+                }
+                .buttonStyle(.borderedProminent)
+                .fullScreenCover(isPresented: $showResultView) {
+                    ResultView(address1: address1, address2: address2, address3: address3)
+                }
+                .alert(isPresented: $showAlert) {
+                    Alert(title: Text("エラー"), message: Text("郵便番号を取得できませんでした"))
+                }
+                .disabled(!canSarchButtonPush())
+                Spacer()
+                Spacer()
             }
-            .padding(30)
-            Button {
-                print("⭐️ DEBUG")
-                self.setResultData()
-                self.showResultView.toggle()
-            } label: {
-                Text("検索実行")
-            }
-            .buttonStyle(.borderedProminent)
-            .fullScreenCover(isPresented: $showResultView) {
-                ResultView(address1: address1, address2: address2, address3: address3)
-            }
-            .disabled(!canSarchButtonPush())
-            
-            Spacer()
-            
-            Spacer()
-            
         }
     }
     
@@ -64,21 +67,34 @@ struct ContentView: View {
     }
     
     private func setResultData() {
-        self.viewModel.fetch($searchZipCode.wrappedValue) { response in
-            DispatchQueue.main.async {
-            self.address1 = response.results[0].address1
-            self.address2 = response.results[0].address2
-            self.address3 = response.results[0].address3
-            self.kana1 = response.results[0].kana1
-            self.kana2 = response.results[0].kana2
-            self.kana3 = response.results[0].kana3
+        self.viewModel.fetch($searchZipCode.wrappedValue) { response,error in
+            
+            if let error = error {
+                self.showProgressView.toggle()
+                self.showAlert.toggle()
+            }
+            
+            guard let response = response else { return }
+
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                self.address1 = response.results[0].address1
+                self.address2 = response.results[0].address2
+                self.address3 = response.results[0].address3
+                self.kana1 = response.results[0].kana1
+                self.kana2 = response.results[0].kana2
+                self.kana3 = response.results[0].kana3
+
+                self.showProgressView.toggle()
+                self.showResultView.toggle()
             }
         }
     }
-}
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
+    
+    
+    
+    struct ContentView_Previews: PreviewProvider {
+        static var previews: some View {
+            ContentView()
+        }
     }
 }
