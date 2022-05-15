@@ -10,9 +10,9 @@ import SwiftUI
 struct ResultView: View {
     @Environment(\.presentationMode) var presentationMode
     
-    let address1: String
-    let address2: String
-    let address3: String
+    var address1: String
+    var address2: String
+    var address3: String
     
     var body: some View {
         VStack {

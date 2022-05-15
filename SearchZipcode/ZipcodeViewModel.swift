@@ -12,9 +12,15 @@ class ZipcodeViewModel: ObservableObject {
 
     private let zipcodeService = ZipcodeService()
 
-    func fetch(_ zipcode: String,completion:@escaping (Zipcode) -> Void){
+    func fetch(_ zipcode: String,completion:@escaping (Zipcode) -> Void) {
         self.zipcodeService.fetch(zipcode) { response in
-            completion(response)
+            DispatchQueue.global().async {
+                completion(response)
+            }
         }
+    }
+    
+    enum ZipcodeViewModelError: Error {
+        case resultNil
     }
 }

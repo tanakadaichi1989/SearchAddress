@@ -9,8 +9,10 @@ import Foundation
 import SwiftUI
 
 class ZipcodeService {
-    func fetch(_ zipCode: String,completion:@escaping (Zipcode) -> Void){
+    func fetch(_ zipCode: String,completion:@escaping (Zipcode) -> Void) {
         let urlString = "https://zipcloud.ibsnet.co.jp/api/search?zipcode=\(zipCode)"
-        APIManager.fetch(urlString){ response in completion(response) }
+        APIManager.fetch(urlString){ response in
+            completion(response)
+        }
     }
 }

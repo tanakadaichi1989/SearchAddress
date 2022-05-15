@@ -25,25 +25,19 @@ struct ContentView: View {
             HeaderView(title1: "郵便番号検索",title2: "数字７桁で入力してください")
             
             Spacer()
-                
+            
             VStack{
                 TextField("（例）9999999", text: $searchZipCode)
                 Divider()
             }
             .padding(30)
-            Button(action: {
-                self.viewModel.fetch($searchZipCode.wrappedValue) { response in
-                    self.address1 = response.results[0].address1
-                    self.address2 = response.results[0].address2
-                    self.address3 = response.results[0].address3
-                    self.kana1 = response.results[0].kana1
-                    self.kana2 = response.results[0].kana2
-                    self.kana3 = response.results[0].kana3
-                }
+            Button {
+                print("⭐️ DEBUG")
+                self.setResultData()
                 self.showResultView.toggle()
-            }, label: {
+            } label: {
                 Text("検索実行")
-            })
+            }
             .buttonStyle(.borderedProminent)
             .fullScreenCover(isPresented: $showResultView) {
                 ResultView(address1: address1, address2: address2, address3: address3)
@@ -53,7 +47,7 @@ struct ContentView: View {
             Spacer()
             
             Spacer()
-        
+            
         }
     }
     
@@ -69,6 +63,18 @@ struct ContentView: View {
         return $searchZipCode.wrappedValue.count == 7
     }
     
+    private func setResultData() {
+        self.viewModel.fetch($searchZipCode.wrappedValue) { response in
+            DispatchQueue.main.async {
+            self.address1 = response.results[0].address1
+            self.address2 = response.results[0].address2
+            self.address3 = response.results[0].address3
+            self.kana1 = response.results[0].kana1
+            self.kana2 = response.results[0].kana2
+            self.kana3 = response.results[0].kana3
+            }
+        }
+    }
 }
 
 struct ContentView_Previews: PreviewProvider {
