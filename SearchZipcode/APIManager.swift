@@ -13,13 +13,16 @@ class APIManager {
         let request = URLRequest(url: url)
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
             guard let unwrappedData = data else { return }
+            
             let decoder = JSONDecoder()
-            guard let decodedResult = try? decoder.decode(T.self, from: unwrappedData) else { return }
-            if let error = error {
+            
+            do{
+                let decodedResult = try? decoder.decode(T.self, from: unwrappedData)
+                completion(decodedResult,nil)
+            } catch {
                 completion(nil,error)
                 return
-            }
-            completion(decodedResult,nil)
+            }    
         }
         task.resume()
     }

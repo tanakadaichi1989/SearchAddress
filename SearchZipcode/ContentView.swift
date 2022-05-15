@@ -45,7 +45,7 @@ struct ContentView: View {
                     ResultView(address1: address1, address2: address2, address3: address3)
                 }
                 .alert(isPresented: $showAlert) {
-                    Alert(title: Text("エラー"), message: Text("郵便番号を取得できませんでした"))
+                    Alert(title: Text("エラー"), message: Text("住所を取得できませんでした"))
                 }
                 .disabled(!canSarchButtonPush())
                 Spacer()
