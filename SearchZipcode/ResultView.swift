@@ -8,9 +8,11 @@
 import SwiftUI
 
 struct ResultView: View {
-    let address1: String
-    let address2: String
-    let address3: String
+    @Environment(\.presentationMode) var presentationMode
+    
+    var address1: String
+    var address2: String
+    var address3: String
     
     var body: some View {
         VStack {
@@ -19,14 +21,14 @@ struct ResultView: View {
             HStack {
                 ForEach([address1,address2,address3],id: \.self){ address in
                     Text(address)
-                        .font(.title)
+                        .font(.title2)
                         .foregroundColor(.secondary)
                         .fontWeight(.bold)
                 }
             }
             Spacer()
             Button(action: {
-                print("⭐️ DEBUG: Result View Button was pushed")
+                presentationMode.wrappedValue.dismiss()
             }, label: {
                 Text("閉じる")
             })
