@@ -27,7 +27,7 @@ struct ContentView: View {
             if showProgressView { ProgressView() }
             
             VStack {
-                HeaderView(title1: "住所から郵便番号を検索",title2: "数字７桁で入力してください")
+                HeaderView(title1: "郵便番号から住所を検索",title2: "数字７桁で入力してください")
                 Spacer()
                 VStack{
                     TextField("（例）9999999", text: $searchZipCode)
