@@ -24,7 +24,7 @@ struct ContentView: View {
             Spacer()
                 
             VStack{
-                TextField("郵便番号（数字７桁で入力）", text: $searchZipCode)
+                TextField("（例）9999999", text: $searchZipCode)
                 Divider()
             }
             .padding(30)
@@ -44,10 +44,8 @@ struct ContentView: View {
             
             Spacer()
             
-            Text("\(self.address1) \(self.address2) \(self.address3)")
-                .padding()
-            
             Spacer()
+        
         }
     }
 }

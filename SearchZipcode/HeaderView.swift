@@ -9,16 +9,18 @@ import SwiftUI
 
 struct HeaderView: View {
     var title1: String
-    var title2: String
+    var title2: String = ""
     var body: some View {
         VStack(alignment: .leading) {
             Text(title1)
                 .font(.largeTitle)
                 .fontWeight(.heavy)
                 .foregroundColor(.white)
-            Text(title2)
-                .font(.caption)
-                .foregroundColor(.white)
+            if title2 != "" {
+                Text(title2)
+                    .font(.caption)
+                    .foregroundColor(.white)
+            }
         }
         .frame(height: 150)
         .frame(maxWidth: .infinity)
