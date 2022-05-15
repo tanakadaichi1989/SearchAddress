@@ -9,22 +9,21 @@ import Foundation
 
 // MARK: - Welcome
 struct Zipcode: Codable {
-    let message: JSONNull?
+    let message: Message?
     let results: [Result]
     let status: Int
 }
 
 // MARK: - Result
 struct Result: Codable {
-    let address1, address2, address3, kana1: String
-    let kana2, kana3, prefcode, zipcode: String
+    let address1, address2, address3, kana1, kana2, kana3, prefcode, zipcode: String
 }
 
 // MARK: - Encode/decode helpers
 
-class JSONNull: Codable, Hashable {
+class Message: Codable, Hashable {
 
-    public static func == (lhs: JSONNull, rhs: JSONNull) -> Bool {
+    public static func == (lhs: Message, rhs: Message) -> Bool {
         return true
     }
 
@@ -37,7 +36,7 @@ class JSONNull: Codable, Hashable {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.singleValueContainer()
         if !container.decodeNil() {
-            throw DecodingError.typeMismatch(JSONNull.self, DecodingError.Context(codingPath: decoder.codingPath, debugDescription: "Wrong type for JSONNull"))
+            throw DecodingError.typeMismatch(Message.self, DecodingError.Context(codingPath: decoder.codingPath, debugDescription: "Wrong type for JSONNull"))
         }
     }
 
@@ -46,23 +45,3 @@ class JSONNull: Codable, Hashable {
         try container.encodeNil()
     }
 }
-
-
-// https://zipcloud.ibsnet.co.jp/api/search?zipcode=6620051
-//
-//{
-//    "message": null,
-//    "results": [
-//        {
-//            "address1": "兵庫県",
-//            "address2": "西宮市",
-//            "address3": "羽衣町",
-//            "kana1": "ﾋｮｳｺﾞｹﾝ",
-//            "kana2": "ﾆｼﾉﾐﾔｼ",
-//            "kana3": "ﾊｺﾞﾛﾓﾁｮｳ",
-//            "prefcode": "28",
-//            "zipcode": "6620051"
-//        }
-//    ],
-//    "status": 200
-//}

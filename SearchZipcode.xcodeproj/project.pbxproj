@@ -14,6 +14,8 @@
 		A1B3CB3E282FF95300C3D3AE /* Zipcode.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B3CB3D282FF95300C3D3AE /* Zipcode.swift */; };
 		A1B3CB40282FFB7000C3D3AE /* ZipcodeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B3CB3F282FFB7000C3D3AE /* ZipcodeService.swift */; };
 		A1B3CB42282FFC1800C3D3AE /* ZipcodeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B3CB41282FFC1800C3D3AE /* ZipcodeViewModel.swift */; };
+		A1B3CB442830153700C3D3AE /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B3CB432830153700C3D3AE /* APIManager.swift */; };
+		A1B3CB462830B04F00C3D3AE /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B3CB452830B04F00C3D3AE /* HeaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +27,8 @@
 		A1B3CB3D282FF95300C3D3AE /* Zipcode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Zipcode.swift; sourceTree = "<group>"; };
 		A1B3CB3F282FFB7000C3D3AE /* ZipcodeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZipcodeService.swift; sourceTree = "<group>"; };
 		A1B3CB41282FFC1800C3D3AE /* ZipcodeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZipcodeViewModel.swift; sourceTree = "<group>"; };
+		A1B3CB432830153700C3D3AE /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		A1B3CB452830B04F00C3D3AE /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,8 +63,10 @@
 			children = (
 				A1B3CB2F282FF94200C3D3AE /* SearchZipcodeApp.swift */,
 				A1B3CB31282FF94200C3D3AE /* ContentView.swift */,
+				A1B3CB452830B04F00C3D3AE /* HeaderView.swift */,
 				A1B3CB3D282FF95300C3D3AE /* Zipcode.swift */,
 				A1B3CB3F282FFB7000C3D3AE /* ZipcodeService.swift */,
+				A1B3CB432830153700C3D3AE /* APIManager.swift */,
 				A1B3CB41282FFC1800C3D3AE /* ZipcodeViewModel.swift */,
 				A1B3CB33282FF94400C3D3AE /* Assets.xcassets */,
 				A1B3CB35282FF94400C3D3AE /* Preview Content */,
@@ -79,9 +85,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		A1B3CB2B282FF94200C3D3AE /* SearchZIipcode */ = {
+		A1B3CB2B282FF94200C3D3AE /* SearchZipcode */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A1B3CB3A282FF94400C3D3AE /* Build configuration list for PBXNativeTarget "SearchZIipcode" */;
+			buildConfigurationList = A1B3CB3A282FF94400C3D3AE /* Build configuration list for PBXNativeTarget "SearchZipcode" */;
 			buildPhases = (
 				A1B3CB28282FF94200C3D3AE /* Sources */,
 				A1B3CB29282FF94200C3D3AE /* Frameworks */,
@@ -91,7 +97,7 @@
 			);
 			dependencies = (
 			);
-			name = SearchZIipcode;
+			name = SearchZipcode;
 			productName = SearchZIipcode;
 			productReference = A1B3CB2C282FF94200C3D3AE /* SearchZipcode.app */;
 			productType = "com.apple.product-type.application";
@@ -111,7 +117,7 @@
 					};
 				};
 			};
-			buildConfigurationList = A1B3CB27282FF94200C3D3AE /* Build configuration list for PBXProject "SearchZIipcode" */;
+			buildConfigurationList = A1B3CB27282FF94200C3D3AE /* Build configuration list for PBXProject "SearchZipcode" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -124,7 +130,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A1B3CB2B282FF94200C3D3AE /* SearchZIipcode */,
+				A1B3CB2B282FF94200C3D3AE /* SearchZipcode */,
 			);
 		};
 /* End PBXProject section */
@@ -146,11 +152,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1B3CB442830153700C3D3AE /* APIManager.swift in Sources */,
 				A1B3CB32282FF94200C3D3AE /* ContentView.swift in Sources */,
 				A1B3CB42282FFC1800C3D3AE /* ZipcodeViewModel.swift in Sources */,
 				A1B3CB3E282FF95300C3D3AE /* Zipcode.swift in Sources */,
 				A1B3CB40282FFB7000C3D3AE /* ZipcodeService.swift in Sources */,
 				A1B3CB30282FF94200C3D3AE /* SearchZipcodeApp.swift in Sources */,
+				A1B3CB462830B04F00C3D3AE /* HeaderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -278,7 +286,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"SearchZIipcode/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"SearchZipcode/Preview Content\"";
 				DEVELOPMENT_TEAM = YUH8WT596Y;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -307,7 +315,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"SearchZIipcode/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"SearchZipcode/Preview Content\"";
 				DEVELOPMENT_TEAM = YUH8WT596Y;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -332,7 +340,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		A1B3CB27282FF94200C3D3AE /* Build configuration list for PBXProject "SearchZIipcode" */ = {
+		A1B3CB27282FF94200C3D3AE /* Build configuration list for PBXProject "SearchZipcode" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A1B3CB38282FF94400C3D3AE /* Debug */,
@@ -341,7 +349,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A1B3CB3A282FF94400C3D3AE /* Build configuration list for PBXNativeTarget "SearchZIipcode" */ = {
+		A1B3CB3A282FF94400C3D3AE /* Build configuration list for PBXNativeTarget "SearchZipcode" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A1B3CB3B282FF94400C3D3AE /* Debug */,
