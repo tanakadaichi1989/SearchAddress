@@ -16,6 +16,7 @@
 		A1B3CB42282FFC1800C3D3AE /* ZipcodeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B3CB41282FFC1800C3D3AE /* ZipcodeViewModel.swift */; };
 		A1B3CB442830153700C3D3AE /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B3CB432830153700C3D3AE /* APIManager.swift */; };
 		A1B3CB462830B04F00C3D3AE /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B3CB452830B04F00C3D3AE /* HeaderView.swift */; };
+		A1B3CB482830B2A400C3D3AE /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B3CB472830B2A400C3D3AE /* ResultView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		A1B3CB41282FFC1800C3D3AE /* ZipcodeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZipcodeViewModel.swift; sourceTree = "<group>"; };
 		A1B3CB432830153700C3D3AE /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		A1B3CB452830B04F00C3D3AE /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		A1B3CB472830B2A400C3D3AE /* ResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 			children = (
 				A1B3CB2F282FF94200C3D3AE /* SearchZipcodeApp.swift */,
 				A1B3CB31282FF94200C3D3AE /* ContentView.swift */,
+				A1B3CB472830B2A400C3D3AE /* ResultView.swift */,
 				A1B3CB452830B04F00C3D3AE /* HeaderView.swift */,
 				A1B3CB3D282FF95300C3D3AE /* Zipcode.swift */,
 				A1B3CB3F282FFB7000C3D3AE /* ZipcodeService.swift */,
@@ -157,6 +160,7 @@
 				A1B3CB42282FFC1800C3D3AE /* ZipcodeViewModel.swift in Sources */,
 				A1B3CB3E282FF95300C3D3AE /* Zipcode.swift in Sources */,
 				A1B3CB40282FFB7000C3D3AE /* ZipcodeService.swift in Sources */,
+				A1B3CB482830B2A400C3D3AE /* ResultView.swift in Sources */,
 				A1B3CB30282FF94200C3D3AE /* SearchZipcodeApp.swift in Sources */,
 				A1B3CB462830B04F00C3D3AE /* HeaderView.swift in Sources */,
 			);
