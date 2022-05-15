@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @EnvironmentObject var viewModel: ZipcodeViewModel
+    
     @State var searchZipCode: String = ""
     @State var address1: String = ""
     @State var address2: String = ""
@@ -16,6 +17,8 @@ struct ContentView: View {
     @State var kana1: String = ""
     @State var kana2: String = ""
     @State var kana3: String = ""
+    
+    @State private var showResultView = false
     
     var body: some View {
         VStack {
@@ -37,10 +40,14 @@ struct ContentView: View {
                     self.kana2 = response.results[0].kana2
                     self.kana3 = response.results[0].kana3
                 }
+                self.showResultView.toggle()
             }, label: {
                 Text("検索実行")
             })
             .buttonStyle(.borderedProminent)
+            .fullScreenCover(isPresented: $showResultView) {
+                ResultView(address1: address1, address2: address2, address3: address3)
+            }
             
             Spacer()
             
