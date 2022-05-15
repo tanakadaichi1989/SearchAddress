@@ -13,7 +13,7 @@ struct HeaderView: View {
     var body: some View {
         VStack(alignment: .leading) {
             Text(title1)
-                .font(.largeTitle)
+                .font(.title)
                 .fontWeight(.heavy)
                 .foregroundColor(.white)
             if title2 != "" {
@@ -30,6 +30,6 @@ struct HeaderView: View {
 
 struct HeaderView_Previews: PreviewProvider {
     static var previews: some View {
-        HeaderView(title1: "郵便番号検索", title2: "数字７桁で入力してください")
+        HeaderView(title1: "郵便番号から住所を検索", title2: "数字７桁で入力してください")
     }
 }
