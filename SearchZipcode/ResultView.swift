@@ -28,7 +28,6 @@ struct ResultView: View {
             }
             Spacer()
             Button(action: {
-                print("⭐️ DEBUG: Result View Button was pushed")
                 presentationMode.wrappedValue.dismiss()
             }, label: {
                 Text("閉じる")

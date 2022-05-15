@@ -48,6 +48,7 @@ struct ContentView: View {
             .fullScreenCover(isPresented: $showResultView) {
                 ResultView(address1: address1, address2: address2, address3: address3)
             }
+            .disabled(!canSarchButtonPush())
             
             Spacer()
             
@@ -55,6 +56,19 @@ struct ContentView: View {
         
         }
     }
+    
+    private func canSarchButtonPush() -> Bool {
+        return isTextFieldEntered() && isLengthSeven()
+    }
+    
+    private func isTextFieldEntered() -> Bool {
+        return $searchZipCode.wrappedValue.description != ""
+    }
+    
+    private func isLengthSeven() -> Bool {
+        return $searchZipCode.wrappedValue.count == 7
+    }
+    
 }
 
 struct ContentView_Previews: PreviewProvider {
