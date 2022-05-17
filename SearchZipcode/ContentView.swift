@@ -30,7 +30,10 @@ struct ContentView: View {
                 HeaderView(title1: "郵便番号から住所を検索",title2: "数字７桁で入力してください")
                 Spacer()
                 VStack{
-                    TextField("（例）9999999", text: $searchZipCode)
+                    TextField("9999999", text: $searchZipCode)
+                        .multilineTextAlignment(.center)
+                        .frame(height: 60)
+                        .font(.system(size: 50))
                     Divider()
                 }
                 .padding(30)
@@ -38,7 +41,8 @@ struct ContentView: View {
                     self.showProgressView.toggle()
                     self.setResultData()
                 } label: {
-                    Text("検索実行")
+                    Text("検索")
+                        .fontWeight(.black)
                 }
                 .buttonStyle(.borderedProminent)
                 .fullScreenCover(isPresented: $showResultView) {

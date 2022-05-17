@@ -18,7 +18,7 @@ struct HeaderView: View {
                 .foregroundColor(.white)
             if title2 != "" {
                 Text(title2)
-                    .font(.caption)
+                    .font(.title3)
                     .foregroundColor(.white)
             }
         }
