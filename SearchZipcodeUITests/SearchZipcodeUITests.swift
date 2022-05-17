@@ -6,11 +6,13 @@
 //
 
 import XCTest
+@testable import SearchZipcode
 
 class SearchZipcodeUITests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
+        UIPasteboard.general.string = nil
 
         // In UI tests it is usually best to stop immediately when a failure occurs.
         continueAfterFailure = false
@@ -26,9 +28,43 @@ class SearchZipcodeUITests: XCTestCase {
         // UI tests must launch the application that they test.
         let app = XCUIApplication()
         app.launch()
+        let buttonExecute = app/*@START_MENU_TOKEN@*/.buttons["buttonExecute"]/*[[".buttons[\"検索\"]",".buttons[\"buttonExecute\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
+        let buttonCopyResult = app.buttons["buttonCopyResult"]
+        let buttonCloseResultView = app.buttons["buttonCloseResultView"]
 
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        // Use XCTAssert and related functions to verify your tests produce the correct results.d
+        let textfield = XCUIApplication().textFields.matching(identifier: "textFieldEnterZipcode").firstMatch
+        
+        // 郵便番号 240-0000 神奈川県 横浜市保土ケ谷区
+        textfield.tap()
+        textfield.typeText("2400000")
+        buttonExecute.tap()
+        sleep(10)
+        buttonCopyResult.tap()
+        
+        guard let result = UIPasteboard.general.string else { return }
+        XCTAssertNotNil(result)
+        XCTAssertEqual(result,"神奈川県 横浜市保土ケ谷区")
+        buttonCloseResultView.tap()
+        
+        // テキストフィールドに入力した郵便番号の消去
+        textfield.tap()
+        let strForClear = String(repeating: XCUIKeyboardKey.delete.rawValue, count: (textfield.value as? String)?.count ?? 0)
+        textfield.typeText(strForClear)
+        
+        // 郵便番号 240-0005 神奈川県 横浜市保土ケ谷区 神戸町
+        textfield.tap()
+        textfield.typeText("2400005")
+        buttonExecute.tap()
+        sleep(10)
+        buttonCopyResult.tap()
+        
+        guard let result = UIPasteboard.general.string else { return }
+        XCTAssertNotNil(result)
+        XCTAssertEqual(result,"神奈川県 横浜市保土ケ谷区 神戸町")
+        buttonCloseResultView.tap()
     }
+
 
     func testLaunchPerformance() throws {
         if #available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 7.0, *) {
