@@ -29,32 +29,43 @@ struct ContentView: View {
             VStack {
                 HeaderView(title1: "郵便番号から住所を検索",title2: "数字７桁で入力してください")
                 Spacer()
-                VStack{
-                    TextField("9999999", text: $searchZipCode)
-                        .multilineTextAlignment(.center)
-                        .font(.title)
-                    Divider()
+                ScrollView(.vertical, showsIndicators: false) {
+                    textField
+                    searchExecuteButton
                 }
-                .padding(30)
-                Button {
-                    self.showProgressView.toggle()
-                    self.setResultData()
-                } label: {
-                    Text("検索")
-                        .fontWeight(.black)
-                }
-                .buttonStyle(.borderedProminent)
-                .fullScreenCover(isPresented: $showResultView) {
-                    ResultView(zipcode:$searchZipCode.wrappedValue ,address1: address1, address2: address2, address3: address3)
-                }
-                .alert(isPresented: $showAlert) {
-                    Alert(title: Text("エラー"), message: Text("住所を取得できませんでした"))
-                }
-                .disabled(!canSarchButtonPush())
-                Spacer()
                 Spacer()
             }
         }
+    }
+    
+    private var textField: some View {
+        VStack{
+            TextField("9999999", text: $searchZipCode)
+                .accessibility(identifier: "textFieldEnterZipcode")
+                .multilineTextAlignment(.center)
+                .font(.title)
+            Divider()
+        }
+        .padding(30)
+    }
+    
+    private var searchExecuteButton: some View {
+        Button {
+            self.showProgressView.toggle()
+            self.setResultData()
+        } label: {
+            Text("検索")
+                .fontWeight(.bold)
+        }
+        .accessibility(identifier: "buttonExecute")
+        .buttonStyle(.borderedProminent)
+        .fullScreenCover(isPresented: $showResultView) {
+            ResultView(zipcode:$searchZipCode.wrappedValue ,address1: address1, address2: address2, address3: address3)
+        }
+        .alert(isPresented: $showAlert) {
+            Alert(title: Text("エラー"), message: Text("住所を取得できませんでした"))
+        }
+        .disabled(!canSarchButtonPush())
     }
     
     private func canSarchButtonPush() -> Bool {
