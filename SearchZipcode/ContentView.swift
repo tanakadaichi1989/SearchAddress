@@ -32,8 +32,7 @@ struct ContentView: View {
                 VStack{
                     TextField("9999999", text: $searchZipCode)
                         .multilineTextAlignment(.center)
-                        .frame(height: 60)
-                        .font(.system(size: 50))
+                        .font(.title)
                     Divider()
                 }
                 .padding(30)
@@ -46,7 +45,7 @@ struct ContentView: View {
                 }
                 .buttonStyle(.borderedProminent)
                 .fullScreenCover(isPresented: $showResultView) {
-                    ResultView(address1: address1, address2: address2, address3: address3)
+                    ResultView(zipcode:$searchZipCode.wrappedValue ,address1: address1, address2: address2, address3: address3)
                 }
                 .alert(isPresented: $showAlert) {
                     Alert(title: Text("エラー"), message: Text("住所を取得できませんでした"))
