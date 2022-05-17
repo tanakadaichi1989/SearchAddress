@@ -36,6 +36,20 @@ class SearchZipcodeTests: XCTestCase {
         let zipcode3 = "000000"
         XCTAssertEqual(String.shape(zipcode: zipcode3), "〒000-0000")
     }
+    
+    func testSetAddress() {
+        let address1 = "神奈川県"
+        let address2 = "横浜市保土ヶ谷区"
+        let address3 = ""
+        let result1 = ResultView(zipcode: "2400000", address1: address1, address2: address2, address3: address3).setAddress()
+        XCTAssertEqual(result1, "神奈川県 横浜市保土ヶ谷区")
+        
+        let address4 = "神奈川県"
+        let address5 = "横浜市保土ヶ谷区"
+        let address6 = "星川"
+        let result2 = ResultView(zipcode: "2400005", address1: address4, address2: address5, address3: address6).setAddress()
+        XCTAssertEqual(result2, "神奈川県 横浜市保土ヶ谷区 星川")
+    }
 
     func testPerformanceExample() throws {
         // This is an example of a performance test case.

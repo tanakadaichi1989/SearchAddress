@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ResultView: View {
     @Environment(\.presentationMode) var presentationMode
+    @State private var tappedCopyButton: Bool = false
     
     var zipcode: String
     var address1: String
@@ -18,32 +19,74 @@ struct ResultView: View {
     var body: some View {
         VStack {
             HeaderView(title1: "検索結果")
-            Spacer()
-            VStack(alignment: .leading) {
-                Text(String.shape(zipcode: zipcode))
-                    .font(.title)
-                    .foregroundColor(Color(.systemGray))
-                    .fontWeight(.semibold)
-                    .padding(.bottom)
-                HStack {
-                    ForEach([address1,address2,address3],id: \.self){ address in
-                        Text(address)
-                            .font(.title)
-                            .foregroundColor(.primary)
-                            .fontWeight(.semibold)
-                    }
+                .padding(.bottom)
+            ScrollView(.vertical, showsIndicators: false) {
+                VStack(alignment: .leading) {
+                    zipcodeLabel
+                    result
                 }
+                .padding(.bottom,20)
+                copyResultButton
+                closeResultViewButton
             }
             Spacer()
-            Button(action: {
-                presentationMode.wrappedValue.dismiss()
-            }, label: {
-                Text("閉じる")
-                    .fontWeight(.black)
-            })
-            .buttonStyle(.bordered)
-            Spacer()
         }
+    }
+}
+
+extension ResultView {
+    private var zipcodeLabel: some View {
+        Text(String.shape(zipcode: zipcode))
+            .font(.title)
+            .foregroundColor(Color(.systemGray))
+            .fontWeight(.semibold)
+            .padding(.bottom)
+    }
+    
+    private var result: some View {
+        HStack {
+            VStack(alignment: .leading) {
+                ForEach([address1,address2,address3],id: \.self){ address in
+                    Text(address)
+                        .font(.title)
+                        .foregroundColor(.primary)
+                        .fontWeight(.semibold)
+                }
+            }
+        }
+    }
+    
+    private var copyResultButton: some View {
+        Button {
+            UIPasteboard.general.string = setAddress()
+            tappedCopyButton.toggle()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                tappedCopyButton.toggle()
+            }
+        } label: {
+            HStack {
+                Image(systemName: "doc.on.doc")
+                Text("住所をコピー")
+                    .fontWeight(.bold)
+            }
+        }
+        .buttonStyle(.borderedProminent)
+        .accessibility(identifier: "buttonCopyResult")
+    }
+    
+    private var closeResultViewButton: some View {
+        Button(action: {
+            presentationMode.wrappedValue.dismiss()
+        }, label: {
+            Text("この画面を閉じる")
+                .fontWeight(.bold)
+        })
+        .buttonStyle(.bordered)
+        .accessibility(identifier: "buttonCloseResultView")
+    }
+    
+    func setAddress() -> String {
+        self.address3 == "" ? "\(self.address1) \(self.address2)" : "\(self.address1) \(self.address2) \(self.address3)"
     }
 }
 
