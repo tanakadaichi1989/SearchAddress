@@ -21,9 +21,9 @@ struct ResultView: View {
             HStack {
                 ForEach([address1,address2,address3],id: \.self){ address in
                     Text(address)
-                        .font(.title2)
-                        .foregroundColor(.secondary)
-                        .fontWeight(.bold)
+                        .font(.title)
+                        .foregroundColor(.primary)
+                        .fontWeight(.heavy)
                 }
             }
             Spacer()
@@ -31,6 +31,7 @@ struct ResultView: View {
                 presentationMode.wrappedValue.dismiss()
             }, label: {
                 Text("閉じる")
+                    .fontWeight(.black)
             })
             .buttonStyle(.bordered)
             Spacer()
