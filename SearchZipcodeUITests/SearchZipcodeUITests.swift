@@ -12,6 +12,7 @@ class SearchZipcodeUITests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
+        XCUIDevice.shared.orientation = .portrait
         UIPasteboard.general.string = nil
 
         // In UI tests it is usually best to stop immediately when a failure occurs.
@@ -38,8 +39,9 @@ class SearchZipcodeUITests: XCTestCase {
         // 郵便番号 240-0000 神奈川県 横浜市保土ケ谷区
         textfield.tap()
         textfield.typeText("2400000")
+        app.typeText("\n")
         buttonExecute.tap()
-        sleep(10)
+        sleep(5)
         buttonCopyResult.tap()
         
         guard let result = UIPasteboard.general.string else { return }
@@ -55,8 +57,9 @@ class SearchZipcodeUITests: XCTestCase {
         // 郵便番号 240-0005 神奈川県 横浜市保土ケ谷区 神戸町
         textfield.tap()
         textfield.typeText("2400005")
+        app.typeText("\n")
         buttonExecute.tap()
-        sleep(10)
+        sleep(5)
         buttonCopyResult.tap()
         
         guard let result = UIPasteboard.general.string else { return }
