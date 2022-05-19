@@ -11,7 +11,7 @@ struct ResultView: View {
     @Environment(\.presentationMode) var presentationMode
     @State private var tappedCopyButton: Bool = false
     @State private var showToast: Bool = false
-
+    
     var zipcode: String
     var address1: String
     var address2: String
@@ -20,13 +20,15 @@ struct ResultView: View {
     var body: some View {
         VStack {
             HeaderView(title1: "検索結果")
-                .padding(.bottom)
             ScrollView(.vertical, showsIndicators: false) {
                 VStack(alignment: .leading) {
-                    zipcodeLabel
-                    result
+                    mapView
+                    VStack(alignment: .leading) {
+                        zipcodeLabel
+                        result
+                    }
+                    .padding()
                 }
-                .padding(.bottom,20)
                 copyResultButton
                 closeResultViewButton
             }
@@ -39,25 +41,22 @@ struct ResultView: View {
 }
 
 extension ResultView {
+    private var mapView: some View {
+        MapView(address: "\(address1)\(address2)\(address3)")
+            .frame(height: 250)
+    }
     private var zipcodeLabel: some View {
         Text(String.shape(zipcode: zipcode))
-            .font(.title)
+            .font(.title3)
             .foregroundColor(Color(.systemGray))
             .fontWeight(.semibold)
-            .padding(.bottom)
     }
     
     private var result: some View {
-        HStack {
-            VStack(alignment: .leading) {
-                ForEach([address1,address2,address3],id: \.self){ address in
-                    Text(address)
-                        .font(.title)
-                        .foregroundColor(.primary)
-                        .fontWeight(.semibold)
-                }
-            }
-        }
+        Text("\(address1) \(address2) \(address3)")
+            .font(.title3)
+            .foregroundColor(.primary)
+            .fontWeight(.semibold)
     }
     
     private var copyResultButton: some View {
