@@ -20,6 +20,7 @@
 		A1B3CB442830153700C3D3AE /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B3CB432830153700C3D3AE /* APIManager.swift */; };
 		A1B3CB462830B04F00C3D3AE /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B3CB452830B04F00C3D3AE /* HeaderView.swift */; };
 		A1B3CB482830B2A400C3D3AE /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B3CB472830B2A400C3D3AE /* ResultView.swift */; };
+		A1FDF84928360067007BC2EA /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FDF84828360067007BC2EA /* ToastView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,7 @@
 		A1B3CB432830153700C3D3AE /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		A1B3CB452830B04F00C3D3AE /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		A1B3CB472830B2A400C3D3AE /* ResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultView.swift; sourceTree = "<group>"; };
+		A1FDF84828360067007BC2EA /* ToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 		A1B3CB23282FF94200C3D3AE = {
 			isa = PBXGroup;
 			children = (
+				A1FDF84828360067007BC2EA /* ToastView.swift */,
 				A1B3CB2E282FF94200C3D3AE /* SearchZipcode */,
 				A19F03042833445A00B16211 /* SearchZipcodeTests */,
 				A15F4CE02833E9A800B961C6 /* SearchZipcodeUITests */,
@@ -299,6 +302,7 @@
 				A1B3CB40282FFB7000C3D3AE /* ZipcodeService.swift in Sources */,
 				A1B3CB482830B2A400C3D3AE /* ResultView.swift in Sources */,
 				A1B3CB30282FF94200C3D3AE /* SearchZipcodeApp.swift in Sources */,
+				A1FDF84928360067007BC2EA /* ToastView.swift in Sources */,
 				A1B3CB462830B04F00C3D3AE /* HeaderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
