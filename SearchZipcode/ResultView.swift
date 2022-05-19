@@ -10,7 +10,8 @@ import SwiftUI
 struct ResultView: View {
     @Environment(\.presentationMode) var presentationMode
     @State private var tappedCopyButton: Bool = false
-    
+    @State private var showToast: Bool = false
+
     var zipcode: String
     var address1: String
     var address2: String
@@ -30,6 +31,9 @@ struct ResultView: View {
                 closeResultViewButton
             }
             Spacer()
+        }
+        .toast(isPresented: showToast) {
+            ToastView(imageSystemName: "checkmark.circle", text: "コピーしました")
         }
     }
 }
@@ -60,8 +64,12 @@ extension ResultView {
         Button {
             UIPasteboard.general.string = setAddress()
             tappedCopyButton.toggle()
+            withAnimation {
+                showToast.toggle()
+            }
             DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
                 tappedCopyButton.toggle()
+                showToast.toggle()
             }
         } label: {
             HStack {
