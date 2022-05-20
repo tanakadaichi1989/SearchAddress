@@ -10,8 +10,10 @@ https://apps.apple.com/jp/app/searchzipcode/id1624355640
 - 検索結果の住所をコピーできる
 - 検索結果の住所に応じた地図を表示する
 
+<img src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/199441/55b91116-f2fe-d270-02b7-332f67da1fa1.png" width="200"> <img src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/199441/4c8d19fb-d96c-4112-b8e8-8ff1346364e1.png" width="200">
+
 ### 開発日数
-- １日 （Ver 1.0）
+- １日 ※ Ver 1.0 のリリース
 
 ## 開発環境
 |項目|内容|
