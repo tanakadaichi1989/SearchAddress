@@ -28,8 +28,9 @@ struct ToastView: View {
             .clipShape(Capsule())
             .padding(.bottom)
         }
-        .frame(width: UIScreen.main.bounds.width / 2)
+        .frame(width: 170)
         .transition(AnyTransition.move(edge: .bottom).combined(with: .opacity))
+        .padding()
     }
 }
 
