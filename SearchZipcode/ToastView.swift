@@ -11,20 +11,24 @@ struct ToastView: View {
     let imageSystemName: String
     let text: String
     var body: some View {
-        HStack {
-            Image(systemName: imageSystemName)
-                .foregroundStyle(.white, .white)
-                .padding(.top,5)
-                .padding(.bottom,5)
-                .padding(.leading,10)
-            Text(text)
-                .foregroundColor(.white)
-                .fontWeight(.bold)
+        VStack {
             Spacer()
+            HStack {
+                Image(systemName: imageSystemName)
+                    .foregroundStyle(.white, .white)
+                    .padding(.top,5)
+                    .padding(.bottom,5)
+                    .padding(.leading,10)
+                Text(text)
+                    .foregroundColor(.white)
+                    .fontWeight(.bold)
+                Spacer()
+            }
+            .background(Color(UIColor.secondaryLabel))
+            .clipShape(Capsule())
         }
-        .background(.green)
-        .cornerRadius(5)
-        .padding()
+        .frame(width: UIScreen.main.bounds.width / 1.25)
+        .transition(AnyTransition.move(edge: .bottom).combined(with: .opacity))
     }
 }
 
@@ -34,7 +38,7 @@ struct ToastModifier: ViewModifier {
     let toast: ToastView
 
     func body(content: Content) -> some View {
-        ZStack(alignment: .topLeading) {
+        ZStack {
             content
             if isPresented {
                 toast
