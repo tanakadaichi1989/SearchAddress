@@ -26,8 +26,9 @@ struct ToastView: View {
             }
             .background(Color(UIColor.secondaryLabel))
             .clipShape(Capsule())
+            .padding(.bottom)
         }
-        .frame(width: UIScreen.main.bounds.width / 1.25)
+        .frame(width: UIScreen.main.bounds.width / 2)
         .transition(AnyTransition.move(edge: .bottom).combined(with: .opacity))
     }
 }
