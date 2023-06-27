@@ -1,5 +1,4 @@
-# SearchZipcode
-<img src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/199441/9eaf363c-8a03-5065-ea28-cca4b790a4c6.jpeg" width="500">
+# SearchAddress
 
 ## アプリの概要
 ### 郵便番号から住所を検索するアプリ
